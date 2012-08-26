@@ -1,4 +1,4 @@
-PROJECT( pair1 )
+PROJECT( util )
 CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
 
 #add_subdirectory( src )
@@ -10,6 +10,6 @@ ADD_EXECUTABLE(pair1 pair1.cpp)
 ADD_EXECUTABLE(pair_test pair_test.cpp)
 ADD_EXECUTABLE(tuple1 tuple1.cpp)
 ADD_EXECUTABLE(tuple2 tuple2.cpp printtuple.hpp )
-
+ADD_EXECUTABLE(sharedptr1 sharedptr1.cpp)
 
 #target_link_libraries( main Test )
