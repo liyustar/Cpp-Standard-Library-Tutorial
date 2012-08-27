@@ -1,4 +1,4 @@
-#include <memofy>	// for shared_ptr
+#include <memory>	// for shared_ptr
 #include <sys/mman.h>	// for shared memeory
 #include <fcntl.h>
 #include <unistd.h>
@@ -18,15 +18,15 @@ class SharedMemoryDetacher
 		}
 };
 
-std::shared_prt<int> getSharedIntMemory (int num)
+std::shared_ptr<int> getSharedIntMemory (int num)
 {
 	void *mem;
-	int shmfd = shm_open(" /tmp1234", O_CREAT|O_RDWR, S_IRWCU|S_IRWXG);
+	int shmfd = shm_open("/tmp1234", O_CREAT|O_RDWR, S_IRWXU|S_IRWXG);
 	if (shmfd < 0) {
 		throw std::string(strerror(errno));
 	}
 
-	if (ftruncat(shmfd, num*sizeof(int)) == -1) {
+	if (ftruncate(shmfd, num*sizeof(int)) == -1) {
 		throw std::string(strerror(errno));
 	}
 	mem = mmap(nullptr, num*sizeof(int), PROT_READ | PROT_WRITE,
@@ -34,7 +34,7 @@ std::shared_prt<int> getSharedIntMemory (int num)
 	if (mem == MAP_FAILED) {
 		throw std::string(strerror(errno));
 	}
-	return str::shared_ptr<int>(static_cast<int*>(mem),
+	return std::shared_ptr<int>(static_cast<int*>(mem),
 								SharedMemoryDetacher());
 }
 
