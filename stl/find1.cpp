@@ -48,6 +48,30 @@ int main()
 		cout << "30 is in the subrange" << endl;
 	}
 
+	// example 2
+	auto pos = find_if (coll.begin(), coll.end(),	// range
+						[] (int i) {				// criterion
+							return i == 25 || i == 35;
+							});
+	if (pos == coll.end()) {
+		// no element with value 25 or 35 found
+		// ...
+	}
+	else if (*pos == 25) {
+		// element with value 25 comes first
+		pos25 = pos;
+		pos35 = find (++pos, coll.end(),
+						35);
+		// ...
+	}
+	else {
+		// element with value 35 comes first
+		pos35 = pos;
+		pos25 = find (++pos, coll.end(),
+						25);
+		// ...
+	}
+
 #endif
 }
 
