@@ -20,5 +20,7 @@ ADD_EXECUTABLE(assoarray1 assoarray1.cpp)
 ADD_EXECUTABLE(list1old list1old.cpp)
 ADD_EXECUTABLE(set1 set1.cpp)
 ADD_EXECUTABLE(unordmultiset2 unordmultiset2.cpp)
+ADD_EXECUTABLE(algo1 algo1.cpp)
+ADD_EXECUTABLE(find1 find1.cpp)
 
 #target_link_libraries( main Test )
