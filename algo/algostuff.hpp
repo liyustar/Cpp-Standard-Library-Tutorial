@@ -54,7 +54,7 @@ inline void PRINT_MAPPED_ELEMENTS (const T& coll,
 	std::cout << optcstr;
 	for (auto elem : coll) {
 		std::cout << '[' << elem.first
-				  << ',' << elem.second << ']';
+				  << ',' << elem.second << "] ";
 	}
 	std::cout << std::endl;
 }
