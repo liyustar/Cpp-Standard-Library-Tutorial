@@ -13,5 +13,6 @@ ADD_EXECUTABLE(stringnumconv1 stringnumconv1.cpp)
 ADD_EXECUTABLE(stringiter1 stringiter1.cpp)
 ADD_EXECUTABLE(stringiter2 stringiter2.cpp)
 ADD_EXECUTABLE(string3 string3.cpp)
+ADD_EXECUTABLE(icstring1 icstring1.cpp)
 
 #target_link_libraries( main Test )

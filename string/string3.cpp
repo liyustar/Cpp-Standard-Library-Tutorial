@@ -16,10 +16,10 @@ int main()
 	const locale& loc (cin.getloc());	// locale
 	unique_copy(istream_iterator<char>(cin),	// beginning of source
 				istream_iterator<char>(),		// end of source
-				back_inserter(input),		// destination
+				back_inserter(input) /*,		// destination
 				[=] (char c1, char c2) {	// criterion for adj. duplicates
 					return isspace(c1,loc) && isspace(c2,loc);
-					});
+					}*/);
 
 	// process input
 	// - here: write it to the standard output
