@@ -1,6 +1,8 @@
-#include <regex>
+// #include <regex>
 #include <iostream>
+#include <boost/regex.hpp>
 using namespace std;
+using namespace boost;
 
 int out (bool b)
 {
@@ -14,9 +16,10 @@ int main()
 	bool found = regex_match ("<tag>value</tag>",	// data
 							  reg1);				// regular expression
 	out(found);
-
+	
 	// find XML/HTML-tagged value (tags before and after the value must match):
-	regex reg2("<(.*)>.*</\\1>");
+	// regex reg2("<.*>(.)*</\\1>");
+	regex reg2(R"(<(.*)>.*</\1>)");
 	found = regex_match ("<tag>value</tag>",		// data
 						 reg2);						// regular expression
 	out(found);
@@ -40,10 +43,10 @@ int main()
 	found = regex_match ("XML tag: <tag>value</tag>",
 						 regex(".*<(.*)>.*</\\1>.*"));	// matches
 	out(found);
-	found = regex_match ("XML tag: <tag>value</tag>",
+	found = regex_search ("XML tag: <tag>value</tag>",
 						 regex("<(.*)>.*</\\1>"));		// matches
 	out(found);
-	found = regex_match ("XML tag: <tag>value</tag>",
+	found = regex_search ("XML tag: <tag>value</tag>",
 						 regex(".*<(.*)>.*</\\1>.*"));	// matches
 	out(found);
 }
