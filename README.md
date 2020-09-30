@@ -1,4 +1,4 @@
 Cpp-Standard-Library-Tutorial
 =============================
 
-my code for learning c++ standard library
+my code for easy learning c++ standard library
